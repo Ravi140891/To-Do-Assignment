@@ -1,55 +1,28 @@
-// Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("Delete");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
+const todoForm = document.querySelector(".form-todo");
+const todoInput = document.querySelector(".form-todo input[type='text']");
+const todoList = document.querySelector(".todo-list");
+todoForm.addEventListener('submit',(e) => {
+e.preventDefault();
+const newToDoText = todoInput.value;
+const newLi = document.createElement("LI");
+const newLiInnerHTML = `
+        <span class="text">${newToDoText}</span>
+        <div class="todo-buttons">
+          <button class="todo-btn done">Done</button>
+          <button class="todo-btn remove">Remove</button>
+        </div>`;
+      newLi.innerHTML = newLiInnerHTML;
+      todoList.append(newLi);
+      todoInput.value = "";
+})
 
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
+todoList.addEventListener('click', (e) => {
+  if(e.target.classList.contains("remove")){
+    const targetedLi = e.target.parentNode.parentNode;
+    targetedLi.remove();
   }
-}
-
-// Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
+  if(e.target.classList.contains("done")){
+    const liSpan = e.target.parentNode.previousElementSibling;
+    liSpan.style.textDecoration = "line-through";
   }
-}, false);
-
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("Delete");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
+})

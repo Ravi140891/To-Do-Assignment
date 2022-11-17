@@ -1,22 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>To-Do List</title>
-  </head>
-  <body>
-    <div id="myDIV" class="header">
-      <h2 style="margin: 5px">My To Do List</h2>
-      <input type="text" id="myInput" placeholder="Title..." />
-      <button onclick="newElement()" class="addBtn">Add</button>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My To-Do Site</title>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <h1 class="logo">To-Do Site</h1>
+      <ul class="nav-items">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">To-Do</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </nav>
+    <div class="headline">
+      <h2>Manage your tasks</h2>
+      <button class="btn btn-headline">Try Now</button>
     </div>
-
-    <ul id="myUL">
+  </header>
+  <section class="todo-section container">
+    <h2>What are your plans for today?</h2>
+    <form class="form-todo">
+      <input type="text" name="" id="" placeholder="Add task To-Do">
+      <input type="submit" value="Add To-Do" class="btn">
+    </form>
+    <ul class="todo-list">
+      <li>
+        <span class="text">This is dummy</span>
+        <div class="todo-buttons">
+          <button class="todo-btn done">Done</button>
+          <button class="todo-btn remove">Remove</button>
+        </div>
+      </li>
     </ul>
-
-    <script src="app.js"></script>
-  </body>
+  </section>
+  <section class="section-feedback container">
+    <h2>Feedback Form</h2>
+    <form class="feedback-form">
+      <div class="form-group">
+        <label for="Name">Your Name</label>
+        <input type="text" name="Name" id="">
+      </div>
+      <div class="form-group">
+        <label for="feedback">Your Feedback</label>
+        <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
+      </div>
+      <button type="submit" class="btn feedback-btn">Submit</button>
+    </form>
+  </section>
+  <script src="app.js"></script>
+</body>
 </html>
