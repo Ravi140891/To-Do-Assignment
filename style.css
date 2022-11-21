@@ -68,11 +68,14 @@ a{
   justify-content: space-between;
   margin-top: 1rem;
 }
+.form-todo label{
+  align-self: center;
+}
 .form-todo input{
   min-height: 100%;
 }
 .form-todo input[type="text"]{
-  width: 78%;
+  width: 65%;
   padding: 0.8rem;
   font-size: 1rem;
   font-weight: 400;
@@ -82,7 +85,9 @@ a{
   background:rgb(12,12,12);
   color: whitesmoke;
   font-weight: bold;
+
 }
+
 .section-feedback{
   margin: 5rem auto;
   text-align: center;
@@ -125,8 +130,7 @@ display: block;
 }
 .todo-list li{
   padding: .7rem;
-  background: #444;
-  color: whitesmoke;
+  color: black;
   margin-top: 1rem;
   text-transform: capitalize;
   display: flex;
@@ -138,4 +142,13 @@ display: block;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+}
+.red{
+  background-color: red;
+}
+.yellow{
+  background-color: yellow;
+}
+.none{
+  display: none;
 }

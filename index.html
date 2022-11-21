@@ -26,14 +26,23 @@
     <h2>What are your plans for today?</h2>
     <form class="form-todo">
       <input type="text" name="" id="" placeholder="Add task To-Do">
+      <label for="">Priority</label>
+      <select name="priority" id="priority" onchange="selectedEl()" class="user_priority">
+        <option value="high">High</option>
+        <option value="moderate">Moderate</option>
+      </select>
       <input type="submit" value="Add To-Do" class="btn">
     </form>
     <ul class="todo-list">
       <li>
-        <span class="text">This is dummy</span>
-        <div class="todo-buttons">
-          <button class="todo-btn done">Done</button>
-          <button class="todo-btn remove">Remove</button>
+        <span class="text">Tasks which you have to do.</span>
+        <div class="choose">
+          <label for="Priority">Priority</label>
+          <select name="" id="priority_choice">
+            <option value="all">All</option>
+            <option value="high">High</option>
+            <option value="moderate">Moderate</option>
+          </select>
         </div>
       </li>
     </ul>
