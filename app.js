@@ -2,12 +2,12 @@ const todoForm = document.querySelector(".form-todo");
 const todoInput = document.querySelector(".form-todo input[type='text']");
 const todoList = document.querySelector(".todo-list");
 const userPriority = document.querySelector(".user_priority");
-
-
+const filterPriority = document.querySelector("#priority_choice");
 todoForm.addEventListener('submit',(e) => {
 e.preventDefault();
 const newToDoText = todoInput.value;
-const newLi = document.createElement("LI");
+const newLi = document.createElement("li");
+newLi.classList.add("row_list")
 if(userPriority.value =="high"){
   newLi.classList.add("red");
 }
@@ -36,43 +36,37 @@ todoList.addEventListener('click', (e) => {
   }
 })
 
-
-const filterEl = document.getElementById("priority_choice")
-// const filter = document.getElementById("priority_choice");
-// filter.addEventListener('click', (e) => {
-//   if(e.target.value == "high"){
-//   moderate.style.display = "none";
-//   high.style.display = "block"
-// }
-// if(e.target.value == "moderate"){
-//   high.style.display = "none";
-//   moderate.style.display = "block";
-// }
-// if(e.target.value  == "all"){
-//   high.style.display = "block";
-//   moderate.style.display = "block";
-// }
-// console.log(e.target.value);
-// })
-
-filterEl.addEventListener('change', filterEntry);
-const optionEl = document.getElementById("priority_choice");
-function filterEntry (e) {
-let listEl = document.getElementsByTagName("li");
-for(let i = 4; i < listEl.length; i++){
-  if(e.target.value == "high"){
-    listEl.getElementsByClassName("yellow").style.display = "none";
-    }
-  }
-}
-
-
-
-
-
 const selectedEl = () => {
   const priority = document.getElementById("priority").value;
 }
 const priority = selectedEl();
 
 
+filterPriority.addEventListener('change', (e) => {
+  let highPriority = document.querySelectorAll(".red");
+  let moderatePriority = document.querySelectorAll(".yellow");
+  let all = document.querySelectorAll(".row_list");
+  console.log(moderatePriority);
+  console.log(highPriority);
+  
+  if(e.target.value == "high"){
+    for(let i = 0; i < moderatePriority.length; i++){
+      moderatePriority[i].style.display = "none";
+      highPriority[i].style.display = "flex"
+    }
+    }
+
+    if(e.target.value == "moderate"){
+      for(let i = 0; i < highPriority.length; i++){
+        highPriority[i].style.display = "none";
+        moderatePriority[i].style.display = "flex";
+      }
+    }
+
+    if(e.target.value == "all"){
+      for(let i = 0; i < all.length; i++){
+        highPriority[i].style.display = "flex";
+        moderatePriority[i].style.display = "flex";
+      }
+    }
+});
