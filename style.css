@@ -149,3 +149,9 @@ display: block;
 .yellow{
   background-color: yellow;
 }
+.choose{
+  height: 6vh;
+}
+.choose #priority_choice{
+  padding: .3rem 0;
+}
