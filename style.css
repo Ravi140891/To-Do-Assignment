@@ -123,14 +123,13 @@ display: block;
   display: block;
   margin-top: 1rem;
 }
-.todo-list{
+.todo-list, .todo-menu{
   text-align: left;
   font-size: 1.2rem;
   list-style-type: none;
 }
-.todo-list li{
+.todo-list li, .todo-menu li{
   padding: .7rem;
-  color: black;
   margin-top: 1rem;
   text-transform: capitalize;
   display: flex;
@@ -143,15 +142,19 @@ display: block;
   font-weight: bold;
   cursor: pointer;
 }
-.red{
-  background-color: red;
+.high{
+  color: red;
 }
-.yellow{
-  background-color: yellow;
+.moderate{
+  color: yellowgreen;
 }
 .choose{
   height: 6vh;
 }
 .choose #priority_choice{
   padding: .3rem 0;
+}
+
+.checked {
+  text-decoration: line-through;
 }
